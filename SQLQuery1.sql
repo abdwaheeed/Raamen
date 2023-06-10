@@ -48,3 +48,16 @@ CREATE TABLE Detail(
 		ON UPDATE CASCADE ON DELETE CASCADE,
 	Quantity INT NOT NULL
 )
+
+SET IDENTITY_INSERT [dbo].[Role] ON
+INSERT INTO [dbo].[Role] ([Id], [Name]) VALUES (1, N'Admin')
+INSERT INTO [dbo].[Role] ([Id], [Name]) VALUES (2, N'Staff')
+INSERT INTO [dbo].[Role] ([Id], [Name]) VALUES (3, N'Member')
+SET IDENTITY_INSERT [dbo].[Role] OFF
+
+SET IDENTITY_INSERT [dbo].[User] ON
+INSERT INTO [dbo].[User] ([Id], [RoleID], [UserName], [Email], [Gender], [Password]) VALUES (1, 1, N'lazyadmin', N'adminramen@gmail.com', N'Male', N'admin123')
+INSERT INTO [dbo].[User] ([Id], [RoleID], [UserName], [Email], [Gender], [Password]) VALUES (2, 2, N'staff', N'stafframen@gmail.com', N'Male', N'Staff123')
+INSERT INTO [dbo].[User] ([Id], [RoleID], [UserName], [Email], [Gender], [Password]) VALUES (3, 3, N'Wahid', N'wahid@gmail.com', N'Male', N'wahid123')
+INSERT INTO [dbo].[User] ([Id], [RoleID], [UserName], [Email], [Gender], [Password]) VALUES (4, 3, N'testing', N'tes@gmail.com', N'Female', N'tes')
+SET IDENTITY_INSERT [dbo].[User] OFF
