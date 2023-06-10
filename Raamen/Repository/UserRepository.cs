@@ -30,5 +30,10 @@ namespace Raamen.Repository
         {
             return db.Users.Where(user => user.Id == id).FirstOrDefault();
         }
+
+        public static bool duplicateAccount(string email, string username)
+        {
+            return (db.Users.Where(user => user.Email == email || user.UserName == username).FirstOrDefault() == null);
+        }
     }
 }
