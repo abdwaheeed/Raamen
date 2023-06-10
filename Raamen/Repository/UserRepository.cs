@@ -35,5 +35,16 @@ namespace Raamen.Repository
         {
             return (db.Users.Where(user => user.Email == email || user.UserName == username).FirstOrDefault() == null);
         }
+
+        public static List<User> getAllCustomer()
+        {
+            return db.Users.Where(user => user.Id == 3).ToList();
+        }
+
+        public static List<User> getAllStaff()
+        {
+            return db.Users.Where(user => user.Id == 2).ToList();
+        }
+
     }
 }

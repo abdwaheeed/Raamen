@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Raamen.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,14 @@ namespace Raamen.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            CustomerGV1.DataSource = UserRepository.getAllCustomer();
+            CustomerGV1.DataBind();
 
+            CustomerGV2.DataSource = UserRepository.getAllCustomer();
+            CustomerGV2.DataBind();
+
+            StaffGV.DataSource = UserRepository.getAllStaff();
+            StaffGV.DataBind();
         }
 
         protected void Logout(object sender, EventArgs e)
