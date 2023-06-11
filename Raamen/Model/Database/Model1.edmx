@@ -5,13 +5,10 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="RaamenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'D:\BINUS UNIVERSITY\SEMESTER 4\PATTERN SOFTWARE DESIGN - LAB\SOURCE CODE\RAAMEN\RAAMEN\APP_DATA\RAAMEN.MDF.dbo.Detail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Detail">
           <Key>
             <PropertyRef Name="HeaderId" />
             <PropertyRef Name="RamenId" />
-            <PropertyRef Name="Quantity" />
           </Key>
           <Property Name="HeaderId" Type="int" Nullable="false" />
           <Property Name="RamenId" Type="int" Nullable="false" />
@@ -132,18 +129,12 @@ warning 6002: The table/view 'D:\BINUS UNIVERSITY\SEMESTER 4\PATTERN SOFTWARE DE
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="RaamenModelStoreContainer">
+          <EntitySet Name="Detail" EntityType="Self.Detail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Header" EntityType="Self.Header" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Meat" EntityType="Self.Meat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ramen" EntityType="Self.Ramen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Detail" EntityType="Self.Detail" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Detail].[HeaderId] AS [HeaderId], 
-    [Detail].[RamenId] AS [RamenId], 
-    [Detail].[Quantity] AS [Quantity]
-    FROM [dbo].[Detail] AS [Detail]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK__Detail__HeaderId__4222D4EF" Association="Self.FK__Detail__HeaderId__4222D4EF">
             <End Role="Header" EntitySet="Header" />
             <End Role="Detail" EntitySet="Detail" />
@@ -170,6 +161,17 @@ warning 6002: The table/view 'D:\BINUS UNIVERSITY\SEMESTER 4\PATTERN SOFTWARE DE
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RaamenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Detail">
+          <Key>
+            <PropertyRef Name="HeaderId" />
+            <PropertyRef Name="RamenId" />
+          </Key>
+          <Property Name="HeaderId" Type="Int32" Nullable="false" />
+          <Property Name="RamenId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Header" Relationship="Self.FK__Detail__HeaderId__4222D4EF" FromRole="Detail" ToRole="Header" />
+          <NavigationProperty Name="Raman" Relationship="Self.FK__Detail__RamenId__4316F928" FromRole="Detail" ToRole="Ramen" />
+        </EntityType>
         <EntityType Name="Header">
           <Key>
             <PropertyRef Name="Id" />
@@ -198,8 +200,8 @@ warning 6002: The table/view 'D:\BINUS UNIVERSITY\SEMESTER 4\PATTERN SOFTWARE DE
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Broth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Meat" Relationship="Self.FK__Ramen__MeatId__403A8C7D" FromRole="Ramen" ToRole="Meat" />
           <NavigationProperty Name="Details" Relationship="Self.FK__Detail__RamenId__4316F928" FromRole="Ramen" ToRole="Detail" />
+          <NavigationProperty Name="Meat" Relationship="Self.FK__Ramen__MeatId__403A8C7D" FromRole="Ramen" ToRole="Meat" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -222,18 +224,6 @@ warning 6002: The table/view 'D:\BINUS UNIVERSITY\SEMESTER 4\PATTERN SOFTWARE DE
           <NavigationProperty Name="Headers" Relationship="Self.FK__Header__Customer__3B75D760" FromRole="User" ToRole="Header" />
           <NavigationProperty Name="Role" Relationship="Self.FK__User__RoleID__38996AB5" FromRole="User" ToRole="Role" />
         </EntityType>
-        <EntityType Name="Detail">
-          <Key>
-            <PropertyRef Name="HeaderId" />
-            <PropertyRef Name="RamenId" />
-            <PropertyRef Name="Quantity" />
-          </Key>
-          <Property Name="HeaderId" Type="Int32" Nullable="false" />
-          <Property Name="RamenId" Type="Int32" Nullable="false" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Header" Relationship="Self.FK__Detail__HeaderId__4222D4EF" FromRole="Detail" ToRole="Header" />
-          <NavigationProperty Name="Raman" Relationship="Self.FK__Detail__RamenId__4316F928" FromRole="Detail" ToRole="Ramen" />
-        </EntityType>
         <Association Name="FK__Detail__HeaderId__4222D4EF">
           <End Role="Header" Type="Self.Header" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -245,6 +235,20 @@ warning 6002: The table/view 'D:\BINUS UNIVERSITY\SEMESTER 4\PATTERN SOFTWARE DE
             </Principal>
             <Dependent Role="Detail">
               <PropertyRef Name="HeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Detail__RamenId__4316F928">
+          <End Role="Ramen" Type="Self.Raman" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Detail" Type="Self.Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ramen">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Detail">
+              <PropertyRef Name="RamenId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -276,20 +280,6 @@ warning 6002: The table/view 'D:\BINUS UNIVERSITY\SEMESTER 4\PATTERN SOFTWARE DE
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Detail__RamenId__4316F928">
-          <End Role="Ramen" Type="Self.Raman" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Detail" Type="Self.Detail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ramen">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Detail">
-              <PropertyRef Name="RamenId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__User__RoleID__38996AB5">
           <End Role="Role" Type="Self.Role" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -304,15 +294,19 @@ warning 6002: The table/view 'D:\BINUS UNIVERSITY\SEMESTER 4\PATTERN SOFTWARE DE
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="RaamenEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="RaamenEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Details" EntityType="Self.Detail" />
           <EntitySet Name="Headers" EntityType="Self.Header" />
           <EntitySet Name="Meats" EntityType="Self.Meat" />
           <EntitySet Name="Ramen" EntityType="Self.Raman" />
           <EntitySet Name="Roles" EntityType="Self.Role" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <EntitySet Name="Details" EntityType="Self.Detail" />
           <AssociationSet Name="FK__Detail__HeaderId__4222D4EF" Association="Self.FK__Detail__HeaderId__4222D4EF">
             <End Role="Header" EntitySet="Headers" />
+            <End Role="Detail" EntitySet="Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Detail__RamenId__4316F928" Association="Self.FK__Detail__RamenId__4316F928">
+            <End Role="Ramen" EntitySet="Ramen" />
             <End Role="Detail" EntitySet="Details" />
           </AssociationSet>
           <AssociationSet Name="FK__Header__Customer__3B75D760" Association="Self.FK__Header__Customer__3B75D760">
@@ -322,10 +316,6 @@ warning 6002: The table/view 'D:\BINUS UNIVERSITY\SEMESTER 4\PATTERN SOFTWARE DE
           <AssociationSet Name="FK__Ramen__MeatId__403A8C7D" Association="Self.FK__Ramen__MeatId__403A8C7D">
             <End Role="Meat" EntitySet="Meats" />
             <End Role="Ramen" EntitySet="Ramen" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Detail__RamenId__4316F928" Association="Self.FK__Detail__RamenId__4316F928">
-            <End Role="Ramen" EntitySet="Ramen" />
-            <End Role="Detail" EntitySet="Details" />
           </AssociationSet>
           <AssociationSet Name="FK__User__RoleID__38996AB5" Association="Self.FK__User__RoleID__38996AB5">
             <End Role="Role" EntitySet="Roles" />
@@ -337,7 +327,16 @@ warning 6002: The table/view 'D:\BINUS UNIVERSITY\SEMESTER 4\PATTERN SOFTWARE DE
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="RaamenModelStoreContainer" CdmEntityContainer="RaamenEntities">
+        <EntityContainerMapping StorageEntityContainer="RaamenModelStoreContainer" CdmEntityContainer="RaamenEntities1">
+          <EntitySetMapping Name="Details">
+            <EntityTypeMapping TypeName="RaamenModel.Detail">
+              <MappingFragment StoreEntitySet="Detail">
+                <ScalarProperty Name="HeaderId" ColumnName="HeaderId" />
+                <ScalarProperty Name="RamenId" ColumnName="RamenId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Headers">
             <EntityTypeMapping TypeName="RaamenModel.Header">
               <MappingFragment StoreEntitySet="Header">
@@ -384,15 +383,6 @@ warning 6002: The table/view 'D:\BINUS UNIVERSITY\SEMESTER 4\PATTERN SOFTWARE DE
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Details">
-            <EntityTypeMapping TypeName="RaamenModel.Detail">
-              <MappingFragment StoreEntitySet="Detail">
-                <ScalarProperty Name="HeaderId" ColumnName="HeaderId" />
-                <ScalarProperty Name="RamenId" ColumnName="RamenId" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
