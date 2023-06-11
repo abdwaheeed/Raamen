@@ -7,12 +7,39 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Raamen.View
+namespace Raamen.View.Member
 {
 
 
-    public partial class Home
+    public partial class Ramen
     {
+
+        /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
+        /// RamenUpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel RamenUpdatePanel;
+
+        /// <summary>
+        /// iduser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label iduser;
 
         /// <summary>
         /// Label1 control.
@@ -24,40 +51,22 @@ namespace Raamen.View
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Label4 control.
+        /// RamenGV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.GridView RamenGV;
 
         /// <summary>
-        /// CustomerGV1 control.
+        /// CartUpdatePanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CustomerGV1;
-
-        /// <summary>
-        /// Label5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
-
-        /// <summary>
-        /// StaffGV control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView StaffGV;
+        protected global::System.Web.UI.UpdatePanel CartUpdatePanel;
 
         /// <summary>
         /// Label2 control.
@@ -69,30 +78,30 @@ namespace Raamen.View
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Label6 control.
+        /// CartGV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.GridView CartGV;
 
         /// <summary>
-        /// CustomerGV2 control.
+        /// ClearBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CustomerGV2;
+        protected global::System.Web.UI.WebControls.Button ClearBtn;
 
         /// <summary>
-        /// Label3 control.
+        /// OrderBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Button OrderBtn;
     }
 }

@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Raamen.Model
+namespace Raamen.Model.Database
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class RaamenEntities : DbContext
+    public partial class RaamenEntities1 : DbContext
     {
-        public RaamenEntities()
-            : base("name=RaamenEntities")
+        public RaamenEntities1()
+            : base("name=RaamenEntities1")
         {
         }
     
@@ -25,11 +25,11 @@ namespace Raamen.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Detail> Details { get; set; }
         public virtual DbSet<Header> Headers { get; set; }
         public virtual DbSet<Meat> Meats { get; set; }
         public virtual DbSet<Raman> Ramen { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Detail> Details { get; set; }
     }
 }

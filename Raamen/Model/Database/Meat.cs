@@ -7,26 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Raamen.Model
+namespace Raamen.Model.Database
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Header
+    public partial class Meat
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Header()
+        public Meat()
         {
-            this.Details = new HashSet<Detail>();
+            this.Ramen = new HashSet<Raman>();
         }
     
         public int Id { get; set; }
-        public int CustomerId { get; set; }
-        public int StaffId { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Detail> Details { get; set; }
-        public virtual User User { get; set; }
+        public virtual ICollection<Raman> Ramen { get; set; }
     }
 }
