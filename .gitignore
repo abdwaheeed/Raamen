@@ -359,5 +359,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-App_Data
-aspnet_client
+Raamen/App_Data
+Raamen/aspnet_client
