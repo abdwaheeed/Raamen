@@ -360,3 +360,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 App_Data
+aspnet_client
