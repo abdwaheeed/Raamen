@@ -58,6 +58,68 @@ namespace Raamen.Repository
 
             return result;
         }
+
+        public static List<TransactionResponse> getHandleOrder()
+        {
+            var query = db.Headers
+                .Where(t => t.StaffId != -1)
+                .Join(
+                    db.Details,
+                    header => header.Id,
+                    detail => detail.HeaderId,
+                    (header, detail) => new
+                    {
+                        Header = header,
+                        Detail = detail
+                    })
+                .Join(
+                    db.Ramen,
+                    details => details.Detail.RamenId,
+                    ramen => ramen.Id,
+                    (details, ramen) => new
+                    {
+                        Header = details.Header,
+                        Detail = details.Detail,
+                        Ramen = ramen
+                    });
+
+            var result = query.AsEnumerable()
+                .Select(details => TransactionFactory.transactionMap(details.Header, details.Detail, details.Ramen))
+                .ToList();
+
+            return result;
+        }
+
+        public static List<TransactionResponse> getHandleOrderById(int id)
+        {
+            var query = db.Headers
+                .Where(t => t.Id == id && t.StaffId != -1)
+                .Join(
+                    db.Details,
+                    header => header.Id,
+                    detail => detail.HeaderId,
+                    (header, detail) => new
+                    {
+                        Header = header,
+                        Detail = detail
+                    })
+                .Join(
+                    db.Ramen,
+                    details => details.Detail.RamenId,
+                    ramen => ramen.Id,
+                    (details, ramen) => new
+                    {
+                        Header = details.Header,
+                        Detail = details.Detail,
+                        Ramen = ramen
+                    });
+
+            var result = query.AsEnumerable()
+                .Select(details => TransactionFactory.transactionMap(details.Header, details.Detail, details.Ramen))
+                .ToList();
+
+            return result;
+        }
         public static Header getHandle(int id)
         {
             return db.Headers.Where(t => t.Id == id).FirstOrDefault();
