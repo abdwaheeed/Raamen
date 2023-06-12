@@ -16,6 +16,9 @@ namespace Raamen.View.Staff
 
             UnhandleGV.DataSource = TransactionRepository.getUnhandleOrder();
             UnhandleGV.DataBind();
+
+            HandledGV.DataSource = TransactionRepository.getHandleOrder();
+            HandledGV.DataBind();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,11 +40,14 @@ namespace Raamen.View.Staff
                 int idUser = Int32.Parse(Session["user"].ToString());
 
                 TransactionHandler.handleOrder(idRow, idUser);
-                rowid.Text = idRow.ToString();
-                userid.Text = idUser.ToString();
 
                 render();
             }
+        }
+
+        protected void HandledGV_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
         }
     }
 }
