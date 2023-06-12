@@ -359,5 +359,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-App_Data
-aspnet_client/system_web/4_0_30319/crystalreportviewers13
+Raamen/App_Data
+Raamen/aspnet_client
