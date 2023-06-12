@@ -120,6 +120,11 @@ namespace Raamen.Repository
 
             return result;
         }
+
+        public static List<Header> getTransactionHeader()
+        {
+            return db.Headers.Where(t => t.StaffId != -1).ToList();
+        }
         public static Header getHandle(int id)
         {
             return db.Headers.Where(t => t.Id == id).FirstOrDefault();
