@@ -26,5 +26,10 @@ namespace Raamen.Handler
             Header h = TransactionRepository.getHandle(idRow);
             TransactionRepository.handleOrder(h, idUser);
         }
+
+        public static List<Header> getTransactionHeader()
+        {
+            return TransactionRepository.getTransactionHeader();
+        }
     }
 }
