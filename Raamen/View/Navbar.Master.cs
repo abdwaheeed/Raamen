@@ -1,5 +1,4 @@
-﻿using Raamen.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,18 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Raamen.View
 {
-    public partial class Home : System.Web.UI.Page
+    public partial class Site1 : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            CustomerGV1.DataSource = UserRepository.getAllCustomer();
-            CustomerGV1.DataBind();
 
-            CustomerGV2.DataSource = UserRepository.getAllCustomer();
-            CustomerGV2.DataBind();
-
-            StaffGV.DataSource = UserRepository.getAllStaff();
-            StaffGV.DataBind();
         }
 
         protected void Logout(object sender, EventArgs e)
@@ -34,5 +26,6 @@ namespace Raamen.View
             Session.Abandon();
             Response.Redirect("/View/Home.aspx");
         }
+        
     }
 }

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Raamen.View
+namespace Raamen.View.Staff
 {
 
 
-    public partial class Home
+    public partial class ManageRamen
     {
 
         /// <summary>
@@ -24,22 +24,13 @@ namespace Raamen.View
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Label4 control.
+        /// raamenView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-
-        /// <summary>
-        /// CustomerGV1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CustomerGV1;
+        protected global::System.Web.UI.WebControls.GridView raamenView;
 
         /// <summary>
         /// Label5 control.
@@ -51,13 +42,13 @@ namespace Raamen.View
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// StaffGV control.
+        /// meatTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView StaffGV;
+        protected global::System.Web.UI.WebControls.TextBox meatTxt;
 
         /// <summary>
         /// Label2 control.
@@ -69,22 +60,13 @@ namespace Raamen.View
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Label6 control.
+        /// ramenTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
-
-        /// <summary>
-        /// CustomerGV2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CustomerGV2;
+        protected global::System.Web.UI.WebControls.TextBox ramenTxt;
 
         /// <summary>
         /// Label3 control.
@@ -94,5 +76,41 @@ namespace Raamen.View
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
+
+        /// <summary>
+        /// brothTxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox brothTxt;
+
+        /// <summary>
+        /// Label4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+
+        /// <summary>
+        /// priceTxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox priceTxt;
+
+        /// <summary>
+        /// insertBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button insertBtn;
     }
 }

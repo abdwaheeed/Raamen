@@ -7,23 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Raamen.Model
+namespace Raamen.Model.Database
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Role()
+        public User()
         {
-            this.Users = new HashSet<User>();
+            this.Headers = new HashSet<Header>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
+        public int RoleID { get; set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
+        public string Gender { get; set; }
+        public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Header> Headers { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

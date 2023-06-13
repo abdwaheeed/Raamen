@@ -1,5 +1,7 @@
 ﻿using Raamen.Factory;
 using Raamen.Model;
+using Raamen.Model.Database;
+using Raamen.Model.Output;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,7 @@ namespace Raamen.Repository
 {
     public class UserRepository
     {
-        public static RaamenEntities db = new RaamenEntities();
+        public static RaamenEntities1 db = new RaamenEntities1();
 
         public static User getUserFromEmailAndPassword(string email, string password)
         {
@@ -30,5 +32,25 @@ namespace Raamen.Repository
         {
             return db.Users.Where(user => user.Id == id).FirstOrDefault();
         }
+
+        public static bool duplicateAccount(string email, string username)
+        {
+            return (db.Users.Where(user => user.Email == email || user.UserName == username).FirstOrDefault() == null);
+        }
+
+        public static List<CustomerResponse> getAllCustomer()
+        {
+            return db.Users.Where(user => user.Id == 3)
+                .Select(UserFactory.getAllMember)
+                .ToList();
+        }
+
+        public static List<CustomerResponse> getAllStaff()
+        {
+            return db.Users.Where(user => user.Id == 2)
+                .Select(UserFactory.getAllMember)
+                .ToList();
+        }
+
     }
 }

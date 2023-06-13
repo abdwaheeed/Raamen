@@ -1,4 +1,6 @@
 ﻿using Raamen.Model;
+using Raamen.Model.Database;
+using Raamen.Model.Output;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +21,16 @@ namespace Raamen.Factory
                 Password = password
             };
         }
+
+        public static CustomerResponse getAllMember(User user)
+        {
+            return new CustomerResponse
+            {
+                UserName = user.UserName,
+                Email = user.Email,
+                Gender = user.Gender
+            };
+        }
+
     }
 }

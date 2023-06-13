@@ -1,4 +1,5 @@
 ﻿using Raamen.Model;
+using Raamen.Model.Database;
 using Raamen.Repository;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,10 @@ namespace Raamen.Handler
         {
             User u = UserRepository.createUser(username, email, gender, password);
             UserRepository.addUser(u);
+        }
+        public static bool duplicateAccount(string email, string username)
+        {
+            return UserRepository.duplicateAccount(email, username);
         }
         public static bool isAdmin(int id)
         {
