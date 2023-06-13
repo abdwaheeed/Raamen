@@ -18,7 +18,7 @@ namespace Raamen.Repository
                     meat => meat.Id,
                     RamenFactory.ramenMap).ToList();
         }
-
+      
         public static List<Raman> getAllRamen1()
         {
             return db.Ramen.ToList();
