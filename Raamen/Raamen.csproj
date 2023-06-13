@@ -793,6 +793,7 @@
     <Compile Include="View\Report.aspx.designer.cs">
       <DependentUpon>Report.aspx</DependentUpon>
     </Compile>
+    
     <Compile Include="View\Staff\ManageRamen.aspx.cs">
       <DependentUpon>ManageRamen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -800,6 +801,7 @@
     <Compile Include="View\Staff\ManageRamen.aspx.designer.cs">
       <DependentUpon>ManageRamen.aspx</DependentUpon>
     </Compile>
+
     <Compile Include="View\Staff\OrderQueue.aspx.cs">
       <DependentUpon>OrderQueue.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -807,6 +809,7 @@
     <Compile Include="View\Staff\OrderQueue.aspx.designer.cs">
       <DependentUpon>OrderQueue.aspx</DependentUpon>
     </Compile>
+   
     <Compile Include="View\Staff\UpdatePage.aspx.cs">
       <DependentUpon>UpdatePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -814,6 +817,7 @@
     <Compile Include="View\Staff\UpdatePage.aspx.designer.cs">
       <DependentUpon>UpdatePage.aspx</DependentUpon>
     </Compile>
+
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Model\Database\Model1.edmx">
