@@ -17,6 +17,8 @@
     <asp:Label ID="Label5" runat="server" Text="Price"></asp:Label><br />
     <asp:TextBox ID="priceTxt" runat="server"></asp:TextBox><br /><br />
 
+    <asp:Label ID="Error" runat="server" Text=""></asp:Label><br /><br />
+
     <asp:Button ID="updateBtn" runat="server" Text="Update" OnClick="updateBtn_Click" />
 
 </asp:Content>

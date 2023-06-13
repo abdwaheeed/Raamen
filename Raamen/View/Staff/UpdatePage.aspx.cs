@@ -32,12 +32,32 @@ namespace Raamen.View.Staff
         protected void updateBtn_Click(object sender, EventArgs e)
         {
             int id = int.Parse(Request.QueryString["id"]);
-            int meatid = int.Parse(meatTxt.Text);
+
+            int meatid;
+            if (!int.TryParse(meatTxt.Text, out meatid))
+            {
+                Error.Text = "Meat type must be chosen!";
+            }
+            else
+            {
+                meatid = int.Parse(meatTxt.Text);
+            }
+
+            //int meatid = int.Parse(meatTxt.Text);
             string name = ramenTxt.Text;
             string broth = brothTxt.Text;
             string price = priceTxt.Text;
 
-            RamenController.updateRamen(id, meatid, name, broth, price);
+            string error = RamenController.updateRamen(id, meatid, name, broth, price);
+
+            if (error == "Ramen has been added")
+            {
+                Error.Text = error;
+            }
+            else
+            {
+                Error.Text = error;
+            }
             onLoad();
         }
     }
