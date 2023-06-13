@@ -20,5 +20,16 @@ namespace Raamen.Factory
                 Price = ramen.Price
             };
         }
+
+        public static Raman createRamen(int meatid, string name, string broth, string price)
+        {
+            Raman ramen = new Raman();
+            ramen.MeatId = meatid;
+            ramen.Name = name;
+            ramen.Broth = broth;
+            ramen.Price = price;
+
+            return ramen;
+        }
     }
 }

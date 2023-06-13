@@ -667,10 +667,13 @@
     <Content Include="View\Member\OrderRamen.aspx" />
     <Content Include="View\Register.aspx" />
     <Content Include="View\Report.aspx" />
+    <Content Include="View\Staff\ManageRamen.aspx" />
     <Content Include="View\Staff\OrderQueue.aspx" />
+    <Content Include="View\Staff\UpdatePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\RamenController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Dataset\RaamenDataset.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -681,6 +684,7 @@
     <Compile Include="Factory\RamenFactory.cs" />
     <Compile Include="Factory\TransactionFactory.cs" />
     <Compile Include="Factory\UserFactory.cs" />
+    <Compile Include="Handler\RamenHandler.cs" />
     <Compile Include="Handler\TransactionHandler.cs" />
     <Compile Include="Handler\UserHandler.cs" />
     <Compile Include="Model\Database\Detail.cs">
@@ -789,6 +793,15 @@
     <Compile Include="View\Report.aspx.designer.cs">
       <DependentUpon>Report.aspx</DependentUpon>
     </Compile>
+    
+    <Compile Include="View\Staff\ManageRamen.aspx.cs">
+      <DependentUpon>ManageRamen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Staff\ManageRamen.aspx.designer.cs">
+      <DependentUpon>ManageRamen.aspx</DependentUpon>
+    </Compile>
+
     <Compile Include="View\Staff\OrderQueue.aspx.cs">
       <DependentUpon>OrderQueue.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -796,6 +809,15 @@
     <Compile Include="View\Staff\OrderQueue.aspx.designer.cs">
       <DependentUpon>OrderQueue.aspx</DependentUpon>
     </Compile>
+   
+    <Compile Include="View\Staff\UpdatePage.aspx.cs">
+      <DependentUpon>UpdatePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Staff\UpdatePage.aspx.designer.cs">
+      <DependentUpon>UpdatePage.aspx</DependentUpon>
+    </Compile>
+
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Model\Database\Model1.edmx">

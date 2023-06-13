@@ -18,5 +18,41 @@ namespace Raamen.Repository
                     meat => meat.Id,
                     RamenFactory.ramenMap).ToList();
         }
+      
+        public static List<Raman> getAllRamen1()
+        {
+            return db.Ramen.ToList();
+        }
+
+        public static Raman findRamenWithId(int id)
+        {
+            return db.Ramen.Find(id);
+        }
+
+        //update ramen
+        public static void updateRamen(int id, int meatid, string name, string broth, string price)
+        {
+            Raman ramen = db.Ramen.Find(id);
+            ramen.MeatId = meatid;
+            ramen.Name = name;
+            ramen.Broth = broth;
+            ramen.Price = price;
+            db.SaveChanges();
+        }
+
+        //insert ramen
+        public static void insertRamen(Raman ramen)
+        {
+            db.Ramen.Add(ramen);
+            db.SaveChanges();
+        }
+
+        //delete ramen
+        public static void deleteRamen(int id)
+        {
+            Raman ramen = db.Ramen.Find(id);
+            db.Ramen.Remove(ramen);
+            db.SaveChanges();
+        }
     }
 }
