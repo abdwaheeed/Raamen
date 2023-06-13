@@ -83,5 +83,10 @@ namespace Raamen.Handler
                 return false;
             }
         }
+
+        public static void updateProfile(int id, string username, string email, string gender, string password)
+        {
+            UserRepository.updateProfile(id, username, email, gender, password);
+        }
     }
 }

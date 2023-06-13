@@ -665,6 +665,7 @@
     <Content Include="View\Home.aspx" />
     <Content Include="View\Login.aspx" />
     <Content Include="View\Member\OrderRamen.aspx" />
+    <Content Include="View\Profile.aspx" />
     <Content Include="View\Register.aspx" />
     <Content Include="View\Report.aspx" />
     <Content Include="View\Staff\ManageRamen.aspx" />
@@ -772,6 +773,13 @@
     <Compile Include="View\Member\OrderRamen.aspx.designer.cs">
       <DependentUpon>OrderRamen.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -793,7 +801,6 @@
     <Compile Include="View\Report.aspx.designer.cs">
       <DependentUpon>Report.aspx</DependentUpon>
     </Compile>
-    
     <Compile Include="View\Staff\ManageRamen.aspx.cs">
       <DependentUpon>ManageRamen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -801,7 +808,6 @@
     <Compile Include="View\Staff\ManageRamen.aspx.designer.cs">
       <DependentUpon>ManageRamen.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="View\Staff\OrderQueue.aspx.cs">
       <DependentUpon>OrderQueue.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -809,7 +815,6 @@
     <Compile Include="View\Staff\OrderQueue.aspx.designer.cs">
       <DependentUpon>OrderQueue.aspx</DependentUpon>
     </Compile>
-   
     <Compile Include="View\Staff\UpdatePage.aspx.cs">
       <DependentUpon>UpdatePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -817,7 +822,6 @@
     <Compile Include="View\Staff\UpdatePage.aspx.designer.cs">
       <DependentUpon>UpdatePage.aspx</DependentUpon>
     </Compile>
-
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Model\Database\Model1.edmx">

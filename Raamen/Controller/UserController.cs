@@ -97,5 +97,32 @@ namespace Raamen.Controller
 
             return "";
         }
+
+        public static string updateProfile(int id, string username, string email, string gender, string password)
+        {
+            if (username.Length < 5 || username.Length > 15)
+            {
+                return "Username length must be between 5 to 15";
+            }
+
+            if (!Regex.IsMatch(username, "^[a-zA-Z ]+$"))
+            {
+                return "Username must be alphabet with space only";
+            }
+
+            if (!email.EndsWith(".com"))
+            {
+                return "Email must ends with .com";
+            }
+
+            if (!(gender.Equals("Male") || gender.Equals("Female")))
+            {
+                return "You must select a gender !";
+            }
+
+            UserHandler.updateProfile(id, username, email, gender, password);
+
+            return "Update profile success";
+        }
     }
 }

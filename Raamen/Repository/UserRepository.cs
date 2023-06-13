@@ -52,5 +52,15 @@ namespace Raamen.Repository
                 .ToList();
         }
 
+        public static void updateProfile(int id, string username, string email, string gender, string password)
+        {
+            User user = db.Users.Find(id);
+            user.UserName = username;
+            user.Email = email;
+            user.Gender = gender;
+            user.Password = password;
+            db.SaveChanges();
+        }
+
     }
 }
